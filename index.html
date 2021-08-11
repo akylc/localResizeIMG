@@ -1,0 +1,53 @@
+<html>
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="text/html charset=UTF-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+    <link rel='apple-touch-icon' href='base64编码的图片'><!-- 注意点一 -->
+    <title>粤省事</title>
+    <style>
+        img{
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <input type="file" accept=”image/*” />
+    <img src="" alt="" class="img1">
+    <div class="ua"></div>
+    <div class="text"></div>
+</body>
+<!-- <script src="./exif.js"></script> -->
+<script>
+    var otext = document.querySelector('.text');
+
+    document.querySelector('.ua').innerHTML = window.navigator.userAgent;
+</script>
+<script src="./lrz.all.bundle.js"></script>
+<script>
+    let img1 = document.querySelector('.img1');
+
+    document.querySelector('input').addEventListener('input', ev => {
+        var file = ev.target.files[0];
+        lrz(file).then(res => {
+            // console.log(res);
+            img1.src = res.base64;
+        })
+
+
+        // const filereader = new FileReader();
+
+        // filereader.onload = function(res){
+        //     img1.src = this.result;
+
+        //     img1 
+        // }
+
+        // if (file) {
+        //     filereader.readAsDataURL(file);
+        // }
+    });
+
+</script>
+</html>

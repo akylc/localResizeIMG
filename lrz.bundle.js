@@ -125,7 +125,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    // 判断是否iOS
 	    // 判断是否android
 	    // 判断是否QQ浏览器
-	    var IOS_VERSION = ISOldIOS ? +ISOldIOS.pop().replace(/_/g, '.') : 0
+	    var IOS_VERSION = ISOldIOS ? ISOldIOS.pop().match(/(\d+)(_)?(\d+)?/)[0].replace('_','.') : 0
 	    return {
 	        oldIOS    : ISOldIOS ? IOS_VERSION < 8 : false,
 	        newIOS    : ISOldIOS ? IOS_VERSION >= 13.4 : false,
